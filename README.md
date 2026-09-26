@@ -59,7 +59,8 @@ Inside the app, a folder of 100,000 files opens in about 0.9 s. With System32 op
 - Filter with wildcards and conditions (`*.jpg`, `size:>10MB`, `date:today`, `label:red`) and group by date or date taken; the sort order and grouping are remembered for each folder
 - Names are found however they are written: hiragana and katakana, and full-width and half-width characters, count as the same when you filter, jump to a name or use the command palette
 - A folder on a network computer that does not answer never holds up the rest of the app
-- Open zip, 7z, rar, tar.gz and other archives like folders (read-only) and copy items out of them; create zip files
+- Open zip, 7z, rar, tar.gz and other archives like folders (read-only) and copy items out of them. Password-protected ones open too — a zip made on Japanese Windows keeps its Japanese names, also when it is encrypted — and the files a Mac adds (`__MACOSX`, `.DS_Store`) are left out
+- Create zip in one click, or 7z (with a password if you like: AES-256, the names encrypted too), tar and tar.gz
 - Free space is checked before copying, and on FAT32 drives files of 4 GB or more are left out with a note, instead of failing at the end
 - A copy or move that could not do everything goes on with the rest and lists what failed and why at the end, with a retry of just those items. Optionally, each copied file is read back and compared with its original (Settings → Behavior); a move to another drive removes the original only after that
 - Activity history (Ctrl+Shift+H): undo past copies, moves, deletes and renames from a list, also after the app was closed, and see what was deleted from the current folder and put it back
@@ -157,7 +158,7 @@ Choose **More info → Run anyway**.
 To make sure the file is the genuine one, compare its SHA-256 with the value on the release page. In PowerShell:
 
 ```powershell
-Get-FileHash .\ExploreMe-Setup-0.8.0.exe -Algorithm SHA256
+Get-FileHash .\ExploreMe-Setup-0.9.0.exe -Algorithm SHA256
 ```
 
 VirusTotal: the v0.7.0 installer, [0 / 67 detections](https://www.virustotal.com/gui/file/677cee4620ffdb58d03f1ab58b951aca6733bc4b3da6b59b7f6f0f8ebba3eb64) (scanned on 2026-09-27).
@@ -195,7 +196,7 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 
 ## Known limitations
 
-- 7z, rar and the like can be extracted, not created (only zip can be created). Password-protected archives cannot be extracted
+- Of the formats other than zip, only 7z, tar and tar.gz can be created; rar, lzh and the like are extracted only. A zip with a password cannot be created (7z can). 7z is compressed on one thread, so it is slow for big folders (about 4 minutes per GB with Normal)
 - An archive opened as a folder is read-only, and its items cannot be dragged out (use Copy or Copy to other side). Archives of more than 200,000 items are not opened as folders
 - Old Japanese archives (lzh, tar and others with Shift_JIS names) may not extract with the right file names
 - The preview of Office, OpenDocument and EPUB files shows their text and tables, not their layout. Pictures such as HEIC or RAW show only when Windows has the codec for them (Microsoft Store extensions); video and audio formats the app cannot play (avi, wmv, wma…) show Windows' thumbnail and details instead
@@ -261,7 +262,8 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 - 絞り込みにワイルドカードと条件（`*.jpg`・`サイズ:>10MB`・`日付:今日`・`ラベル:赤`）、日付や撮影日時でのグループ表示。並べ替えとグループはフォルダーごとに覚えます
 - 名前は書き方が違っても見つかります。絞り込み・名前への移動・コマンドパレットで、ひらがなとカタカナ、全角と半角を同じものとして探します
 - 応答しないネットワーク上のフォルダーがあっても、ほかの操作は待たされません
-- zip・7z・rar・tar.gz などの書庫をフォルダーのように開いて（読み取り専用）中の項目を取り出せます。zip の作成も
+- zip・7z・rar・tar.gz などの書庫をフォルダーのように開いて（読み取り専用）中の項目を取り出せます。パスワード付きの書庫も開けます（日本語の Windows で作った zip は、パスワード付きでも日本語の名前が化けません）。Mac の付属ファイル（`__MACOSX`・`.DS_Store`）は除きます
+- zip は 1 クリックで、7z（パスワードも付けられます: AES-256、名前も暗号化）・tar・tar.gz も作れます
 - コピーの前に行き先の空き容量を確認。FAT32 のドライブには 4 GB 以上のファイルを置けないので、最後に失敗する代わりに、その旨を添えて外します
 - コピーや移動の途中で失敗した項目があっても残りを続け、最後に失敗した項目と理由を示して、それだけを再試行できます。設定で、コピーしたファイルを読み直して元と比べることもできます（設定 → 操作）。別のドライブへの移動では、一致を確かめてから元を消します
 - 操作の履歴（Ctrl+Shift+H）: コピー・移動・削除・名前の変更を一覧から元に戻せます（アプリを閉じた後でも）。開いているフォルダーで削除した項目を一覧して、ごみ箱から戻すこともできます
@@ -359,7 +361,7 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 心配な場合は、ダウンロードしたファイルが本物か確かめられます。各リリースのページに SHA-256 の値を載せています。PowerShell で次を実行し、同じ値か比べてください。
 
 ```powershell
-Get-FileHash .\ExploreMe-Setup-0.8.0.exe -Algorithm SHA256
+Get-FileHash .\ExploreMe-Setup-0.9.0.exe -Algorithm SHA256
 ```
 
 VirusTotal での検査結果（v0.7.0 のインストーラー）: [検出 0 / 67](https://www.virustotal.com/gui/file/677cee4620ffdb58d03f1ab58b951aca6733bc4b3da6b59b7f6f0f8ebba3eb64)（2026-09-27 に検査）。
@@ -397,7 +399,7 @@ Windows・PowerToys・Visual Studio Code は Microsoft グループの商標で�
 
 ## 既知の制限
 
-- 7z・rar などは展開だけです（作成は zip のみ）。パスワード付きの書庫は展開できません
+- zip 以外で作れるのは 7z・tar・tar.gz だけで、rar・lzh などは展開だけです。パスワード付きの zip は作れません（7z なら作れます）。7z は 1 スレッドで圧縮するため、大きなフォルダーでは時間がかかります（標準で 1 GB あたり約 4 分）
 - フォルダーのように開いた書庫の中は読み取り専用で、項目をドラッグして外へ出すことはできません（コピーか「反対側へコピー」で取り出します）。項目が 20 万を超える書庫はフォルダーとしては開きません
 - 古い日本語の書庫（Shift_JIS の名前の lzh・tar など）は、名前が正しく展開されないことがあります
 - Office・OpenDocument・EPUB のプレビューは文字と表だけで、レイアウトは再現しません。HEIC や RAW などの写真は、Windows にそのコーデック（Microsoft Store の拡張機能）があるときだけ表示できます。アプリで再生できない動画・音声（avi・wmv・wma など）は、代わりに Windows のサムネイルと詳細を表示します
