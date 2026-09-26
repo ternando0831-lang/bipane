@@ -11,10 +11,11 @@ English | [日本語](#日本語)
 - **Two panes that work together.** Shift+F5 copies and Shift+F6 moves the selection to the other pane, and the panes can follow each other into subfolders
 - **Quick Look, built in.** Space shows a large preview of photos (HEIC and camera RAW too), video, PDF and Office files, and the arrow keys go through the folder. Nothing else to install
 - **Undo that brings files back — even after the app was closed.** An Undo button right after a delete, move or copy, and the Activity history (Ctrl+Shift+H) to undo earlier steps, also from before a restart. A file replaced by a copy or move goes to the Recycle Bin (on local drives), so Undo restores it too
+- **Compare two folders, cull photos.** Shift+F2 marks what differs between the two panes' folders and copies just that across. In Quick Look, 1–7 put color labels on photos and Delete removes one — its RAW file too — with Ctrl+Z to bring it back
 
 ## How is it different?
 
-Compared on September 26, 2026 with File Explorer on Windows 11 25H2 (build 26200) and with [Files](https://files.community) 4.2.9.
+Compared on September 26, 2026 with File Explorer on Windows 11 25H2 (build 26200) and with [Files](https://files.community) 4.2.9 (the last two rows on September 27, with [PowerToys Peek](https://learn.microsoft.com/windows/powertoys/peek) as documented on August 25, 2026).
 
 | | File Explorer | Files | Explore Me |
 | --- | --- | --- | --- |
@@ -31,6 +32,8 @@ Compared on September 26, 2026 with File Explorer on Windows 11 25H2 (build 2620
 | What was deleted from this folder, from the Recycle Bin | — (the whole Recycle Bin) | — (the whole Recycle Bin) | ✓ |
 | Each copied file read back and compared with its original | — | — | ✓ In Settings |
 | Failed items listed at the end, with a retry of just those | — (stops and asks at each one) | — (asks when a file is in use) | ✓ |
+| Compare the two panes' folders, then copy just the differences across | — | — | ✓ Shift+F2 |
+| Cull photos while viewing them: color labels with 1–7, a RAW file deleted and labelled with its JPEG, Ctrl+Z | — (PowerToys Peek can delete, nothing more) | — (the Peek it opens can delete, nothing more) | ✓ In Quick Look |
 
 Where the others are ahead: File Explorer is built into Windows, and the Open and Save dialogs of other apps are always File Explorer. Files has themes and background images, Git integration, tags and a column view, runs on Windows 10 and ARM64, and is open source.
 
@@ -51,7 +54,9 @@ Inside the app, a folder of 100,000 files opens in about 0.9 s. With System32 op
 - A preview for many kinds of files: photos including HEIC and camera RAW (through the codecs in Windows), video and audio, PDF, Word / Excel / PowerPoint and OpenDocument files (without Office), EPUB, fonts, the contents of archives, who signed a program, and the details File Explorer shows (duration, camera, author…)
 - Workspaces (save and reopen a whole set of tabs), color labels, and the Shelf (collect items with Ctrl+S, then move or copy them together)
 - Disk usage, flat view, and search through subfolders (uses Everything or the Windows index when available)
-- Filter with wildcards and conditions (`*.jpg`, `size:>10MB`, `date:today`) and group by date or date taken; the sort order and grouping are remembered for each folder
+- Compare the two panes' folders (Shift+F2): what is only on one side, newer, older or another size is marked and counted; show only the differences, and copy the newer items or the missing ones across
+- Cull photos in Quick Look: Delete, color labels with 1–7, Ctrl+Z. A RAW file (and its .xmp or .aae, and a Live Photo's .mov) goes with its JPEG or HEIC. Rename by the date taken (`{date}` in Batch rename)
+- Filter with wildcards and conditions (`*.jpg`, `size:>10MB`, `date:today`, `label:red`) and group by date or date taken; the sort order and grouping are remembered for each folder
 - Names are found however they are written: hiragana and katakana, and full-width and half-width characters, count as the same when you filter, jump to a name or use the command palette
 - A folder on a network computer that does not answer never holds up the rest of the app
 - Open zip, 7z, rar, tar.gz and other archives like folders (read-only) and copy items out of them; create zip files
@@ -115,6 +120,8 @@ It works like File Explorer. Press **F1** in the app for every shortcut, and **C
 | Single pane / two panes | Ctrl+Shift+D |
 | Copy / move to the other pane | Shift+F5 / Shift+F6 |
 | Large preview (Quick Look) | Space |
+| In Quick Look: to the Recycle Bin / color label (0 takes it off) / undo | Delete / 1–7 / Ctrl+Z |
+| Compare the two folders | Shift+F2 |
 | Command palette (find commands and folders by name) | Ctrl+K |
 | Put on the Shelf (move or copy them together later) | Ctrl+S |
 | Undo / redo (also a delete to the Recycle Bin) | Ctrl+Z / Ctrl+Y |
@@ -150,7 +157,7 @@ Choose **More info → Run anyway**.
 To make sure the file is the genuine one, compare its SHA-256 with the value on the release page. In PowerShell:
 
 ```powershell
-Get-FileHash .\ExploreMe-Setup-0.7.0.exe -Algorithm SHA256
+Get-FileHash .\ExploreMe-Setup-0.8.0.exe -Algorithm SHA256
 ```
 
 VirusTotal: the v0.7.0 installer, [0 / 67 detections](https://www.virustotal.com/gui/file/677cee4620ffdb58d03f1ab58b951aca6733bc4b3da6b59b7f6f0f8ebba3eb64) (scanned on 2026-09-27).
@@ -206,10 +213,11 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 - **連携する 2 画面**: 選んだものを Shift+F5 で反対側へコピー、Shift+F6 で移動。サブフォルダーへの移動に反対側を追従させることもできます
 - **クイックルックを内蔵**: Space で大きくプレビュー。HEIC やカメラの RAW の写真、動画、PDF、Office のファイルも。矢印キーでフォルダーの中を次々に見られます。ほかに何も入れる必要はありません
 - **アプリを閉じた後でも元に戻せる**: 削除・移動・コピーの直後に「元に戻す」ボタン。前の操作は操作の履歴（Ctrl+Shift+H）から、再起動の前の分も戻せます。コピーや移動で置き換えたファイルはごみ箱に入るので（PC の内蔵ドライブ）、元に戻すで戻ります
+- **フォルダーの比較と写真の選別**: Shift+F2 で左右のフォルダーの違いに印を付け、違う項目だけを反対側へコピー。クイックルックでは 1〜7 で写真にカラーラベル、Delete で削除（RAW も一緒に）、Ctrl+Z で戻せます
 
 ## ほかとの違い
 
-2026 年 9 月 26 日に、Windows 11 25H2（ビルド 26200）のエクスプローラー、[Files](https://files.community) 4.2.9 と比べました。
+2026 年 9 月 26 日に、Windows 11 25H2（ビルド 26200）のエクスプローラー、[Files](https://files.community) 4.2.9 と比べました（最後の 2 行は 9 月 27 日。[PowerToys の Peek](https://learn.microsoft.com/ja-jp/windows/powertoys/peek) は 2026 年 8 月 25 日の説明書で確認）。
 
 | | エクスプローラー | Files | Explore Me |
 | --- | --- | --- | --- |
@@ -226,6 +234,8 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 | このフォルダーで削除した項目を、ごみ箱から一覧 | —（ごみ箱全体） | —（ごみ箱全体） | ✓ |
 | コピーしたファイルを読み直して元と比べる | — | — | ✓ 設定で |
 | 失敗した項目を最後にまとめて示し、それだけを再試行 | —（1 件ごとに止まって聞く） | —（使用中のファイルで聞く） | ✓ |
+| 左右のフォルダーを比べて、違う項目だけを反対側へコピー | — | — | ✓ Shift+F2 |
+| 写真を見ながら選別（1〜7 でカラーラベル、RAW も JPEG と一緒に削除・ラベル、Ctrl+Z で戻す） | —（PowerToys の Peek は削除だけ） | —（呼び出す Peek は削除だけ） | ✓ クイックルックで |
 
 ほかが勝っているところ: エクスプローラーは Windows に最初から入っていて、ほかのアプリの「開く」「保存」の画面は常にエクスプローラーです。Files には着せ替え（テーマ・背景画像）、Git との連携、タグ、カラム表示があり、Windows 10 と ARM64 でも動き、オープンソースです。
 
@@ -246,7 +256,9 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 - いろいろなファイルのプレビュー: HEIC やカメラの RAW を含む写真（Windows のコーデックを使用）、動画・音声、PDF、Word・Excel・PowerPoint と OpenDocument のファイル（Office が無くても）、EPUB、フォント、書庫の中身、プログラムの署名元、エクスプローラーの詳細と同じ情報（長さ・カメラ・作成者など）
 - ワークスペース（開いているタブ一式を保存して呼び出す）、カラーラベル、仮置き（Ctrl+S で集めてまとめて移動）
 - 容量の内訳、フラット表示、サブフォルダーの検索（Everything・Windows のインデックスがあれば使う）
-- 絞り込みにワイルドカードと条件（`*.jpg`・`サイズ:>10MB`・`日付:今日`）、日付や撮影日時でのグループ表示。並べ替えとグループはフォルダーごとに覚えます
+- 左右のフォルダーの比較（Shift+F2）: 片側だけ・新しい・古い・大きさ違いに印を付けて件数を示します。違いだけを表示したり、新しい方や反対側に無い項目だけを反対側へコピーしたりできます
+- クイックルックで写真の選別: Delete、1〜7 のカラーラベル、Ctrl+Z。RAW（と .xmp・.aae、Live Photo の .mov）は JPEG／HEIC と一緒に扱います。撮影日時で名前を変更（まとめて名前を変更の `{date}`）
+- 絞り込みにワイルドカードと条件（`*.jpg`・`サイズ:>10MB`・`日付:今日`・`ラベル:赤`）、日付や撮影日時でのグループ表示。並べ替えとグループはフォルダーごとに覚えます
 - 名前は書き方が違っても見つかります。絞り込み・名前への移動・コマンドパレットで、ひらがなとカタカナ、全角と半角を同じものとして探します
 - 応答しないネットワーク上のフォルダーがあっても、ほかの操作は待たされません
 - zip・7z・rar・tar.gz などの書庫をフォルダーのように開いて（読み取り専用）中の項目を取り出せます。zip の作成も
@@ -310,6 +322,8 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 | 1 画面 / 2 画面の切り替え | Ctrl+Shift+D |
 | 反対側のペインへコピー / 移動 | Shift+F5 / Shift+F6 |
 | 大きなプレビュー（クイックルック） | Space |
+| クイックルックで: ごみ箱へ / カラーラベル（0 で外す） / 元に戻す | Delete / 1〜7 / Ctrl+Z |
+| 左右のフォルダーを比較 | Shift+F2 |
 | コマンドパレット（操作やフォルダーを名前で探す） | Ctrl+K |
 | 仮置きに入れる（あとでまとめて移動・コピー） | Ctrl+S |
 | 元に戻す / やり直す（ごみ箱への削除も戻せます） | Ctrl+Z / Ctrl+Y |
@@ -345,7 +359,7 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 心配な場合は、ダウンロードしたファイルが本物か確かめられます。各リリースのページに SHA-256 の値を載せています。PowerShell で次を実行し、同じ値か比べてください。
 
 ```powershell
-Get-FileHash .\ExploreMe-Setup-0.7.0.exe -Algorithm SHA256
+Get-FileHash .\ExploreMe-Setup-0.8.0.exe -Algorithm SHA256
 ```
 
 VirusTotal での検査結果（v0.7.0 のインストーラー）: [検出 0 / 67](https://www.virustotal.com/gui/file/677cee4620ffdb58d03f1ab58b951aca6733bc4b3da6b59b7f6f0f8ebba3eb64)（2026-09-27 に検査）。
