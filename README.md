@@ -64,12 +64,16 @@ Inside the app, a folder of 100,000 files opens in about 0.9 s. With System32 op
 - Free space is checked before copying, and on FAT32 drives files of 4 GB or more are left out with a note, instead of failing at the end
 - A copy or move that could not do everything goes on with the rest and lists what failed and why at the end, with a retry of just those items. Optionally, each copied file is read back and compared with its original (Settings → Behavior); a move to another drive removes the original only after that
 - Activity history (Ctrl+Shift+H): undo past copies, moves, deletes and renames from a list, also after the app was closed, and see what was deleted from the current folder and put it back
+- Pins shared with Windows' Quick access (on by default): File Explorer and the Open / Save dialogs of other apps show the same pinned folders, in the same order and under the same names, and a pin made in File Explorer shows up at once. A pinned folder renamed in Explore Me keeps its pin, in its place
+- Stay in the notification area when closed (optional): the next window comes up at once, and Explore Me can start with Windows without a window
 - English / Japanese, light / dark
 
 ## Is it safe?
 
 - **Nothing about you or your files is sent.** The only network access is the update check to GitHub, and you can turn it off (Settings → About)
 - **It does not change how Windows opens folders** unless you turn on "Open folders with Explore Me" or "Open Explore Me with Win+E" in Settings. Turning them off, or uninstalling, puts back what was there before
+- **Pinning a folder in Explore Me pins it in Windows' Quick access**, since the pins are shared by default (File Explorer shows the same pins). Turn sharing off in Settings → General; your pins stay in both
+- **It starts with Windows only if you turn on "Start when I sign in"** (Settings → Startup and windows, with "Stay in the notification area when closed"). Turning it off, or uninstalling, removes the startup entry
 - **Deleted items go to the Recycle Bin** (on drives that have one). Only Shift+Delete deletes them for good, and it always asks first
 - **The installer is not code-signed**, so Windows may warn you the first time you run it. Each release lists the installer's SHA-256 (see [Download](#download))
 
@@ -105,7 +109,7 @@ It works like File Explorer. Press **F1** in the app for every shortcut, and **C
 
 ### The window
 
-- Navigation on the left: Home, pinned folders, This PC (drives), Workspaces, the Shelf
+- Navigation on the left: Home, pinned folders (the same as File Explorer's Quick access), This PC (drives), Workspaces, the Shelf
 - On the right: two panes, each with its own tabs; the one you last clicked is the one you work in (Ctrl+Shift+D switches to a single pane)
 - The app opens on Home (frequent places, drives and recent items)
 - The language follows Windows (English or Japanese); change it in Settings → General → Language
@@ -135,6 +139,8 @@ It works like File Explorer. Press **F1** in the app for every shortcut, and **C
 - In the filter box (Ctrl+E), `*.jpg`, `ext:png`, `kind:picture`, `size:>10MB` and `date:today` narrow the list; separate several with spaces
 - Drag a tab to reorder it or to move it to the other pane. When the tabs do not fit, use the ◀ ▶ buttons or the list of every tab (▾)
 - Turn on "Open folders with Explore Me" in Settings to open folders from the desktop and other apps in Explore Me as well, and "Open Explore Me with Win+E" for Win+E (it takes effect once you sign in again)
+- Pin a folder with Ctrl+D, or drop it on the pinned folders. To reorder or rename pins, do it in File Explorer's Quick access: Explore Me follows
+- With "Stay in the notification area when closed" on, × leaves Explore Me running; exit from its icon's menu in the notification area
 
 ## Download
 
@@ -158,10 +164,10 @@ Choose **More info → Run anyway**.
 To make sure the file is the genuine one, compare its SHA-256 with the value on the release page. In PowerShell:
 
 ```powershell
-Get-FileHash .\ExploreMe-Setup-0.9.0.exe -Algorithm SHA256
+Get-FileHash .\ExploreMe-Setup-0.10.0.exe -Algorithm SHA256
 ```
 
-VirusTotal: the v0.7.0 installer, [0 / 67 detections](https://www.virustotal.com/gui/file/677cee4620ffdb58d03f1ab58b951aca6733bc4b3da6b59b7f6f0f8ebba3eb64) (scanned on 2026-09-27).
+VirusTotal: the v0.10.0 installer, [1 / 65 detections](https://www.virustotal.com/gui/file/32afcb1a9798c484a7c7fd8d41394bbdda5807c57bb2cb1fff289e975dcd334f) (scanned on 2026-09-27). The one is a heuristic detection by Kaspersky (`HEUR:Trojan-PSW.JS.Stealer.gen`); it also flags 0.9.0, and not 0.7.0 ([0 / 67](https://www.virustotal.com/gui/file/677cee4620ffdb58d03f1ab58b951aca6733bc4b3da6b59b7f6f0f8ebba3eb64)). It is a false positive and is being reported to Kaspersky: Explore Me reads no saved passwords and sends nothing anywhere — the password code added in 0.9.0 opens password-protected archives on your PC, with the password you type.
 
 ## Updates
 
@@ -177,7 +183,7 @@ The update check (GitHub) is the only network access. No usage data is sent.
 ## Uninstall
 
 Uninstall Explore Me from Windows Settings → Apps → Installed apps.
-If "Open folders with Explore Me" or "Open Explore Me with Win+E" was on, File Explorer takes them back (Win+E once you sign in again).
+If "Open folders with Explore Me" or "Open Explore Me with Win+E" was on, File Explorer takes them back (Win+E once you sign in again). If "Start when I sign in" was on, the startup entry is removed. Folders pinned to Quick access stay pinned in File Explorer.
 
 ## License
 
@@ -198,6 +204,7 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 
 - Of the formats other than zip, only 7z, tar and tar.gz can be created; rar, lzh and the like are extracted only. A zip with a password cannot be created (7z can). 7z is compressed on one thread, so it is slow for big folders (about 4 minutes per GB with Normal)
 - An archive opened as a folder is read-only, and its items cannot be dragged out (use Copy or Copy to other side). Archives of more than 200,000 items are not opened as folders
+- While pins are shared with Quick access, they cannot be reordered or renamed in Explore Me (do it in File Explorer). A pinned folder moved to another place is pinned again at the end of Quick access (a rename keeps its place). Pins of the Recycle Bin and libraries are not shown
 - Old Japanese archives (lzh, tar and others with Shift_JIS names) may not extract with the right file names
 - The preview of Office, OpenDocument and EPUB files shows their text and tables, not their layout. Pictures such as HEIC or RAW show only when Windows has the codec for them (Microsoft Store extensions); video and audio formats the app cannot play (avi, wmv, wma…) show Windows' thumbnail and details instead
 
@@ -267,12 +274,16 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 - コピーの前に行き先の空き容量を確認。FAT32 のドライブには 4 GB 以上のファイルを置けないので、最後に失敗する代わりに、その旨を添えて外します
 - コピーや移動の途中で失敗した項目があっても残りを続け、最後に失敗した項目と理由を示して、それだけを再試行できます。設定で、コピーしたファイルを読み直して元と比べることもできます（設定 → 操作）。別のドライブへの移動では、一致を確かめてから元を消します
 - 操作の履歴（Ctrl+Shift+H）: コピー・移動・削除・名前の変更を一覧から元に戻せます（アプリを閉じた後でも）。開いているフォルダーで削除した項目を一覧して、ごみ箱から戻すこともできます
+- ピン留めを Windows のクイック アクセスと共有（既定）: エクスプローラーやほかのアプリの「開く・保存」ダイアログと同じフォルダーが、同じ並び・同じ名前で出ます。エクスプローラーでピン留めしたものもすぐ出ます。ピン留めしたフォルダーの名前を Explore Me で変えても、同じ位置のまま付いていきます
+- 閉じても通知領域に残す（設定で選べます）: 次にウィンドウを開くのがすぐになります。Windows の起動時にウィンドウを出さずに起動しておくこともできます
 - 日本語 / 英語、ライト / ダーク
 
 ## 安全ですか？
 
 - **あなたやファイルについての情報は送りません。** ネットにつなぐのは GitHub への更新確認だけで、オフにもできます（設定 → バージョン情報）
 - **Windows がフォルダーを開く方法は変えません。** 変わるのは、設定で「フォルダーを Explore Me で開く」「Win+E で Explore Me を開く」をオンにしたときだけです。オフにするかアンインストールすると元に戻ります
+- **Explore Me でピン留めすると、Windows のクイック アクセスにもピン留めされます。** 既定でピン留めを共有しているためです（エクスプローラーにも同じピン留めが出ます）。共有は 設定 → 全般 でオフにでき、そのときのピン留めはどちらにも残ります
+- **Windows と一緒に起動するのは「サインイン時に起動する」をオンにしたときだけです**（設定 → 起動とウィンドウ、「閉じても通知領域に残す」と一緒に）。オフにするかアンインストールすると、スタートアップの登録を消します
 - **削除したものはごみ箱に入ります**（ごみ箱のあるドライブ）。完全に削除するのは Shift+Delete のときだけで、必ず確認します
 - **インストーラーはコード署名をしていません。** 初めて実行するときに Windows の警告が出ることがあります。各リリースにインストーラーの SHA-256 を載せています（[ダウンロード](#ダウンロード)）
 
@@ -308,7 +319,7 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 
 ### 画面
 
-- 左のナビゲーション: ホーム・ピン留めしたフォルダー・PC（ドライブ）・ワークスペース・仮置き
+- 左のナビゲーション: ホーム・ピン留めしたフォルダー（エクスプローラーのクイック アクセスと同じ）・PC（ドライブ）・ワークスペース・仮置き
 - 右側: 左右 2 つのペイン。それぞれにタブがあり、クリックした側が操作の対象になります（Ctrl+Shift+D で 1 画面にも）
 - 起動するとホーム（よく使う場所・ドライブ・最近使った項目）が開きます
 - 表示言語は Windows に合わせます（日本語か英語）。設定 → 全般 → 言語 で変えられます
@@ -338,6 +349,8 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 - 絞り込み欄（Ctrl+E）では `*.jpg`・`拡張子:png`・`種類:画像`・`サイズ:>10MB`・`日付:今日` で絞れます。空白で区切って組み合わせられます
 - タブはドラッグで並べ替え・反対側のペインへ移動できます。入りきらないときは ◀ ▶ かすべてのタブの一覧（▾）から
 - 「フォルダーを Explore Me で開く」を設定でオンにすると、デスクトップやほかのアプリから開いたフォルダーも Explore Me で開きます。「Win+E で Explore Me を開く」をオンにすると Win+E でも（サインインし直すと反映されます）
+- フォルダーのピン留めは Ctrl+D か、ピン留めの欄へのドロップで。並べ替えや名前の変更はエクスプローラーのクイック アクセスで行うと、Explore Me も同じになります
+- 「閉じても通知領域に残す」をオンにすると、× で閉じても Explore Me は動いたままです。終了は通知領域のアイコンのメニューから
 
 ## ダウンロード
 
@@ -361,10 +374,10 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 心配な場合は、ダウンロードしたファイルが本物か確かめられます。各リリースのページに SHA-256 の値を載せています。PowerShell で次を実行し、同じ値か比べてください。
 
 ```powershell
-Get-FileHash .\ExploreMe-Setup-0.9.0.exe -Algorithm SHA256
+Get-FileHash .\ExploreMe-Setup-0.10.0.exe -Algorithm SHA256
 ```
 
-VirusTotal での検査結果（v0.7.0 のインストーラー）: [検出 0 / 67](https://www.virustotal.com/gui/file/677cee4620ffdb58d03f1ab58b951aca6733bc4b3da6b59b7f6f0f8ebba3eb64)（2026-09-27 に検査）。
+VirusTotal での検査結果（v0.10.0 のインストーラー）: [検出 1 / 65](https://www.virustotal.com/gui/file/32afcb1a9798c484a7c7fd8d41394bbdda5807c57bb2cb1fff289e975dcd334f)（2026-09-27 に検査）。1 件は Kaspersky の推定による検出（`HEUR:Trojan-PSW.JS.Stealer.gen`）で、0.9.0 も同じく検出され、0.7.0 は検出されません（[0 / 67](https://www.virustotal.com/gui/file/677cee4620ffdb58d03f1ab58b951aca6733bc4b3da6b59b7f6f0f8ebba3eb64)）。誤検出として Kaspersky に報告しています。Explore Me は保存されたパスワードを読まず、どこにも何も送りません。0.9.0 で入ったパスワードの処理は、入力したパスワードでパスワード付きの書庫を PC の中で開くためのものです。
 
 ## 更新
 
@@ -380,7 +393,7 @@ VirusTotal での検査結果（v0.7.0 のインストーラー）: [検出 0 / 
 ## アンインストール
 
 Windows の「設定 → アプリ → インストールされているアプリ」から Explore Me をアンインストールします。
-「フォルダーを Explore Me で開く」「Win+E で Explore Me を開く」をオンにしていた場合も、元のエクスプローラーに戻ります（Win+E はサインインし直すと反映されます）。
+「フォルダーを Explore Me で開く」「Win+E で Explore Me を開く」をオンにしていた場合も、元のエクスプローラーに戻ります（Win+E はサインインし直すと反映されます）。「サインイン時に起動する」をオンにしていた場合は、スタートアップの登録を消します。クイック アクセスにピン留めしたフォルダーは、エクスプローラーにそのまま残ります。
 
 ## ライセンス
 
@@ -402,4 +415,5 @@ Windows・PowerToys・Visual Studio Code は Microsoft グループの商標で�
 - zip 以外で作れるのは 7z・tar・tar.gz だけで、rar・lzh などは展開だけです。パスワード付きの zip は作れません（7z なら作れます）。7z は 1 スレッドで圧縮するため、大きなフォルダーでは時間がかかります（標準で 1 GB あたり約 4 分）
 - フォルダーのように開いた書庫の中は読み取り専用で、項目をドラッグして外へ出すことはできません（コピーか「反対側へコピー」で取り出します）。項目が 20 万を超える書庫はフォルダーとしては開きません
 - 古い日本語の書庫（Shift_JIS の名前の lzh・tar など）は、名前が正しく展開されないことがあります
+- クイック アクセスと共有している間は、ピン留めの並べ替えと名前の変更は Explore Me ではできません（エクスプローラーで行います）。ピン留めしたフォルダーを別の場所へ移動すると、クイック アクセスの末尾に付け直します（名前の変更なら位置は変わりません）。ごみ箱やライブラリのピン留めは表示しません
 - Office・OpenDocument・EPUB のプレビューは文字と表だけで、レイアウトは再現しません。HEIC や RAW などの写真は、Windows にそのコーデック（Microsoft Store の拡張機能）があるときだけ表示できます。アプリで再生できない動画・音声（avi・wmv・wma など）は、代わりに Windows のサムネイルと詳細を表示します
