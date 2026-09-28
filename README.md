@@ -164,10 +164,10 @@ Choose **More info → Run anyway**.
 To make sure the file is the genuine one, compare its SHA-256 with the value on the release page. In PowerShell:
 
 ```powershell
-Get-FileHash .\ExploreMe-Setup-0.10.0.exe -Algorithm SHA256
+Get-FileHash .\ExploreMe-Setup-0.10.1.exe -Algorithm SHA256
 ```
 
-VirusTotal: the v0.10.0 installer, [1 / 65 detections](https://www.virustotal.com/gui/file/32afcb1a9798c484a7c7fd8d41394bbdda5807c57bb2cb1fff289e975dcd334f) (scanned on 2026-09-27). The one is a heuristic detection by Kaspersky (`HEUR:Trojan-PSW.JS.Stealer.gen`); it also flags 0.9.0, and not 0.7.0 ([0 / 67](https://www.virustotal.com/gui/file/677cee4620ffdb58d03f1ab58b951aca6733bc4b3da6b59b7f6f0f8ebba3eb64)). It is a false positive and is being reported to Kaspersky: Explore Me reads no saved passwords and sends nothing anywhere — the password code added in 0.9.0 opens password-protected archives on your PC, with the password you type.
+VirusTotal: the v0.10.1 installer, [0 / 66 detections](https://www.virustotal.com/gui/file/c85234327f660197da3be2330ec9a4cf3e5d91bdd96a307b662ac02e46abe725) (scanned on 2026-09-29). The 0.9.0 and 0.10.0 installers were flagged by one engine, Kaspersky (`HEUR:Trojan-PSW.JS.Stealer.gen`): a false positive. Its heuristic reacted to where the app chose which file of a password-protected archive to try your password on; 0.10.1 makes that choice in another part of the app and behaves the same (see the [release notes](https://github.com/ternando0831-lang/explore-me/releases/tag/v0.10.1)). Explore Me reads no saved passwords and sends nothing anywhere.
 
 ## Updates
 
@@ -374,10 +374,10 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 心配な場合は、ダウンロードしたファイルが本物か確かめられます。各リリースのページに SHA-256 の値を載せています。PowerShell で次を実行し、同じ値か比べてください。
 
 ```powershell
-Get-FileHash .\ExploreMe-Setup-0.10.0.exe -Algorithm SHA256
+Get-FileHash .\ExploreMe-Setup-0.10.1.exe -Algorithm SHA256
 ```
 
-VirusTotal での検査結果（v0.10.0 のインストーラー）: [検出 1 / 65](https://www.virustotal.com/gui/file/32afcb1a9798c484a7c7fd8d41394bbdda5807c57bb2cb1fff289e975dcd334f)（2026-09-27 に検査）。1 件は Kaspersky の推定による検出（`HEUR:Trojan-PSW.JS.Stealer.gen`）で、0.9.0 も同じく検出され、0.7.0 は検出されません（[0 / 67](https://www.virustotal.com/gui/file/677cee4620ffdb58d03f1ab58b951aca6733bc4b3da6b59b7f6f0f8ebba3eb64)）。誤検出として Kaspersky に報告しています。Explore Me は保存されたパスワードを読まず、どこにも何も送りません。0.9.0 で入ったパスワードの処理は、入力したパスワードでパスワード付きの書庫を PC の中で開くためのものです。
+VirusTotal での検査結果（v0.10.1 のインストーラー）: [検出 0 / 66](https://www.virustotal.com/gui/file/c85234327f660197da3be2330ec9a4cf3e5d91bdd96a307b662ac02e46abe725)（2026-09-29 に検査）。0.9.0 と 0.10.0 のインストーラーは、Kaspersky 1 社だけが推定で検出していました（`HEUR:Trojan-PSW.JS.Stealer.gen`、誤検出）。パスワード付きの書庫で、入力したパスワードをどのファイルで確かめるかを選ぶ処理の置き場所に反応していたため、0.10.1 ではアプリの別の部分でその処理をしています。動きは変わりません（[リリースノート](https://github.com/ternando0831-lang/explore-me/releases/tag/v0.10.1)）。Explore Me は保存されたパスワードを読まず、どこにも何も送りません。
 
 ## 更新
 
