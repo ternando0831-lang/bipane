@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://ternando0831-lang.github.io/explore-me/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ternando0831-lang.github.io/explore-me/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ternando0831-lang.github.io/explore-me/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ternando0831-lang.github.io/explore-me/"/>
+  </url>
+  <url>
+    <loc>https://ternando0831-lang.github.io/explore-me/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ternando0831-lang.github.io/explore-me/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ternando0831-lang.github.io/explore-me/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ternando0831-lang.github.io/explore-me/"/>
+  </url>
+</urlset>
