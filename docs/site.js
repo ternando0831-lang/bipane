@@ -1,4 +1,4 @@
-// Explore Me — product page behavior (design: Claude Design "ExploreMe-v4").
+// Bipane — product page behavior (design: Claude Design "ExploreMe-v4").
 // Everything here is an enhancement: without it the page is a plain, complete document.
 (() => {
   const root = document.documentElement;
@@ -181,7 +181,7 @@
     });
   };
 
-  // ---- Features: the cards become files in a small Explore Me window. ↑↓ select,
+  // ---- Features: the cards become files in a small Bipane window. ↑↓ select,
   // the right pane previews, Space opens Quick Look with ←→ to go through — as in the app.
   const xp = $('.xp');
   const ql = $('dialog.ql');

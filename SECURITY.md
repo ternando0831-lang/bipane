@@ -4,7 +4,7 @@ English | [日本語](#日本語)
 
 ## Supported versions
 
-Only the latest release receives security fixes. Explore Me updates itself automatically (Settings → About), so keeping automatic updates on is usually all you need.
+Only the latest release receives security fixes. Bipane updates itself automatically (Settings → About), so keeping automatic updates on is usually all you need.
 
 ## Reporting a vulnerability
 
@@ -17,11 +17,11 @@ Report it privately in one of these ways:
 
 Please include:
 
-- the versions of Explore Me and Windows
+- the versions of Bipane and Windows
 - what the problem is and how to reproduce it
 - what someone could do by exploiting it
 
-Explore Me is made by one person, so a reply may take some time, but every report is read. Please allow reasonable time for a fix to be released before you disclose the problem publicly.
+Bipane is made by one person, so a reply may take some time, but every report is read. Please allow reasonable time for a fix to be released before you disclose the problem publicly.
 
 Problems in bundled third-party software (Electron / Chromium, 7-Zip) can also be reported to those projects directly.
 
@@ -31,7 +31,7 @@ Problems in bundled third-party software (Electron / Chromium, 7-Zip) can also b
 
 ## 対象の版
 
-セキュリティの修正は最新の版にだけ行います。Explore Me は自動で更新されるので（設定 → バージョン情報）、自動更新をオンにしておけば通常はそれで足ります。
+セキュリティの修正は最新の版にだけ行います。Bipane は自動で更新されるので（設定 → バージョン情報）、自動更新をオンにしておけば通常はそれで足ります。
 
 ## 脆弱性の報告
 
@@ -44,7 +44,7 @@ Problems in bundled third-party software (Electron / Chromium, 7-Zip) can also b
 
 次の内容があると助かります。
 
-- Explore Me と Windows のバージョン
+- Bipane と Windows のバージョン
 - 問題の内容と再現の手順
 - 悪用されると何ができてしまうか
 

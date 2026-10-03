@@ -1,4 +1,4 @@
-/* Explore Me — product page. Design: Claude Design "ExploreMe-v4".
+/* Bipane — product page. Design: Claude Design "ExploreMe-v4".
    The theme is the product itself: two panes. The page is split by the same thin line
    as the app's panes; on wide screens the window rises as one pane and opens into two,
    then becomes a demo driven by the app's own keys. Colors follow Windows 11 (Mica and
@@ -338,7 +338,7 @@ kbd {
 .feature.wide .clip { width: 100%; }
 
 /* ---------- Features explorer (built by site.js from the feature cards above) ----------
-   A small Explore Me window: the features are files on the left, the right pane previews
+   A small Bipane window: the features are files on the left, the right pane previews
    the selected one, Space opens it big (Quick Look). Without JavaScript the cards stay. */
 
 :root {
@@ -665,7 +665,7 @@ td.us i { font-style: normal; color: var(--link); }
   background: var(--c); vertical-align: 1px;
 }
 
-/* Compare: green checks; the race: Explore Me in color */
+/* Compare: green checks; the race: Bipane in color */
 td.us i { color: var(--t-green); }
 .lane.me .bar i { background: linear-gradient(90deg, var(--l-blue), var(--l-green)); }
 .lane.me .tm { color: var(--t-green); }

@@ -1,10 +1,12 @@
-# Explore Me
+# Bipane
 
 English | [日本語](#日本語)
 
-**File Explorer, in two panes.** Explore Me is a tabbed, dual-pane file manager for Windows that looks and works like the Windows 11 File Explorer, so there is nothing new to learn. It adds what File Explorer does not have.
+> **Explore Me is now Bipane** (from version 0.11.0). Same app, new name: an installed Explore Me updates itself and keeps your settings, tabs and pins. If you had pinned it to the taskbar, pin it again. The terms of use change only in the name, effective October 5, 2026 ([LICENSE](LICENSE)).
 
-![Explore Me with two panes: photo thumbnails on the left, a website project on the right, and a preview of the selected photo](images/en/hero-dark.png)
+**File Explorer, in two panes.** Bipane is a tabbed, dual-pane file manager for Windows that looks and works like the Windows 11 File Explorer, so there is nothing new to learn. It adds what File Explorer does not have.
+
+![Bipane with two panes: photo thumbnails on the left, a website project on the right, and a preview of the selected photo](images/en/hero-dark.png)
 
 **[Download the latest version](../../releases/latest)** · free · Windows 11 (64-bit) · English and Japanese
 
@@ -17,7 +19,7 @@ English | [日本語](#日本語)
 
 Compared on September 26, 2026 with File Explorer on Windows 11 25H2 (build 26200) and with [Files](https://files.community) 4.2.9 (the last two rows on September 27, with [PowerToys Peek](https://learn.microsoft.com/windows/powertoys/peek) as documented on August 25, 2026).
 
-| | File Explorer | Files | Explore Me |
+| | File Explorer | Files | Bipane |
 | --- | --- | --- | --- |
 | Two panes | — | ✓ | ✓ |
 | Copy or move the selection to the other pane with one key | — | — | ✓ Shift+F5 / Shift+F6 |
@@ -39,13 +41,13 @@ Where the others are ahead: File Explorer is built into Windows, and the Open an
 
 **Speed**: the time from opening a folder from the command line until its item count shows (median of 5 on the author's PC, Windows 11 25H2, September 26, 2026).
 
-| | File Explorer | Files 4.2.9 | Explore Me 0.6.0 |
+| | File Explorer | Files 4.2.9 | Bipane 0.6.0 |
 | --- | --- | --- | --- |
 | C:\Windows\System32 (4,819 items), the app not running yet | — (always running) | 2.9 s | 0.8 s |
 | The same, the app already running | 1.0 s (a new window) | 1.0 s (a new window) | 0.2 s (a new tab) |
 | A folder of 10,000 files, the app already running | 1.1 s | 1.1 s | 0.2 s |
 
-Inside the app, a folder of 100,000 files opens in about 0.9 s. With System32 open, Files used 249 MB of memory and Explore Me 175 MB (private working set, what Task Manager shows).
+Inside the app, a folder of 100,000 files opens in about 0.9 s. With System32 open, Files used 249 MB of memory and Bipane 175 MB (private working set, what Task Manager shows).
 
 ## Features
 
@@ -64,15 +66,15 @@ Inside the app, a folder of 100,000 files opens in about 0.9 s. With System32 op
 - Free space is checked before copying, and on FAT32 drives files of 4 GB or more are left out with a note, instead of failing at the end
 - A copy or move that could not do everything goes on with the rest and lists what failed and why at the end, with a retry of just those items. Optionally, each copied file is read back and compared with its original (Settings → Behavior); a move to another drive removes the original only after that
 - Activity history (Ctrl+Shift+H): undo past copies, moves, deletes and renames from a list, also after the app was closed, and see what was deleted from the current folder and put it back
-- Pins shared with Windows' Quick access (on by default): File Explorer and the Open / Save dialogs of other apps show the same pinned folders, in the same order and under the same names, and a pin made in File Explorer shows up at once. A pinned folder renamed in Explore Me keeps its pin, in its place
-- Stay in the notification area when closed (optional): the next window comes up at once, and Explore Me can start with Windows without a window
+- Pins shared with Windows' Quick access (on by default): File Explorer and the Open / Save dialogs of other apps show the same pinned folders, in the same order and under the same names, and a pin made in File Explorer shows up at once. A pinned folder renamed in Bipane keeps its pin, in its place
+- Stay in the notification area when closed (optional): the next window comes up at once, and Bipane can start with Windows without a window
 - English / Japanese, light / dark
 
 ## Is it safe?
 
 - **Nothing about you or your files is sent.** The only network access is the update check to GitHub, and you can turn it off (Settings → About)
-- **It does not change how Windows opens folders** unless you turn on "Open folders with Explore Me" or "Open Explore Me with Win+E" in Settings. Turning them off, or uninstalling, puts back what was there before
-- **Pinning a folder in Explore Me pins it in Windows' Quick access**, since the pins are shared by default (File Explorer shows the same pins). Turn sharing off in Settings → General; your pins stay in both
+- **It does not change how Windows opens folders** unless you turn on "Open folders with Bipane" or "Open Bipane with Win+E" in Settings. Turning them off, or uninstalling, puts back what was there before
+- **Pinning a folder in Bipane pins it in Windows' Quick access**, since the pins are shared by default (File Explorer shows the same pins). Turn sharing off in Settings → General; your pins stay in both
 - **It starts with Windows only if you turn on "Start when I sign in"** (Settings → Startup and windows, with "Stay in the notification area when closed"). Turning it off, or uninstalling, removes the startup entry
 - **Deleted items go to the Recycle Bin** (on drives that have one). Only Shift+Delete deletes them for good, and it always asks first
 - **The installer is not code-signed**, so Windows may warn you the first time you run it. Each release lists the installer's SHA-256 (see [Download](#download))
@@ -138,13 +140,13 @@ It works like File Explorer. Press **F1** in the app for every shortcut, and **C
 - Double-click an archive (zip, 7z, rar, tar.gz and more) to look inside it like a folder; copy items out with Ctrl+C or Shift+F5. "Extract here" in its right-click menu extracts all of it
 - In the filter box (Ctrl+E), `*.jpg`, `ext:png`, `kind:picture`, `size:>10MB` and `date:today` narrow the list; separate several with spaces
 - Drag a tab to reorder it or to move it to the other pane. When the tabs do not fit, use the ◀ ▶ buttons or the list of every tab (▾)
-- Turn on "Open folders with Explore Me" in Settings to open folders from the desktop and other apps in Explore Me as well, and "Open Explore Me with Win+E" for Win+E (it takes effect once you sign in again)
-- Pin a folder with Ctrl+D, or drop it on the pinned folders. To reorder or rename pins, do it in File Explorer's Quick access: Explore Me follows
-- With "Stay in the notification area when closed" on, × leaves Explore Me running; exit from its icon's menu in the notification area
+- Turn on "Open folders with Bipane" in Settings to open folders from the desktop and other apps in Bipane as well, and "Open Bipane with Win+E" for Win+E (it takes effect once you sign in again)
+- Pin a folder with Ctrl+D, or drop it on the pinned folders. To reorder or rename pins, do it in File Explorer's Quick access: Bipane follows
+- With "Stay in the notification area when closed" on, × leaves Bipane running; exit from its icon's menu in the notification area
 
 ## Download
 
-Download `ExploreMe-Setup-<version>.exe` from [Releases](../../releases/latest) and run it.
+Download `Bipane-Setup-<version>.exe` from [Releases](../../releases/latest) and run it.
 
 ### System requirements
 
@@ -164,10 +166,10 @@ Choose **More info → Run anyway**.
 To make sure the file is the genuine one, compare its SHA-256 with the value on the release page. In PowerShell:
 
 ```powershell
-Get-FileHash .\ExploreMe-Setup-0.10.2.exe -Algorithm SHA256
+Get-FileHash .\Bipane-Setup-0.11.0.exe -Algorithm SHA256
 ```
 
-VirusTotal: the v0.10.2 installer, [0 / 68 detections](https://www.virustotal.com/gui/file/9ae46f2d1b866370ddcec703fb41159322e088883bb24268c63c6420f20138dc) (scanned on 2026-09-29; Kaspersky included). The 0.9.0 and 0.10.0 installers were flagged by one engine, Kaspersky (`HEUR:Trojan-PSW.JS.Stealer.gen`): a false positive, fixed in 0.10.1. Its heuristic reacted to where the app chose which file of a password-protected archive to try your password on; since 0.10.1 the app makes that choice in another part of the app and behaves the same (see the [0.10.1 release notes](https://github.com/ternando0831-lang/explore-me/releases/tag/v0.10.1)). Explore Me reads no saved passwords and sends nothing anywhere.
+VirusTotal: the v0.10.2 installer (Explore Me, before the rename), [0 / 68 detections](https://www.virustotal.com/gui/file/9ae46f2d1b866370ddcec703fb41159322e088883bb24268c63c6420f20138dc) (scanned on 2026-09-29; Kaspersky included). The 0.9.0 and 0.10.0 installers were flagged by one engine, Kaspersky (`HEUR:Trojan-PSW.JS.Stealer.gen`): a false positive, fixed in 0.10.1. Its heuristic reacted to where the app chose which file of a password-protected archive to try your password on; since 0.10.1 the app makes that choice in another part of the app and behaves the same (see the [0.10.1 release notes](https://github.com/ternando0831-lang/bipane/releases/tag/v0.10.1)). Bipane reads no saved passwords and sends nothing anywhere.
 
 ## Updates
 
@@ -182,8 +184,8 @@ The update check (GitHub) is the only network access. No usage data is sent.
 
 ## Uninstall
 
-Uninstall Explore Me from Windows Settings → Apps → Installed apps.
-If "Open folders with Explore Me" or "Open Explore Me with Win+E" was on, File Explorer takes them back (Win+E once you sign in again). If "Start when I sign in" was on, the startup entry is removed. Folders pinned to Quick access stay pinned in File Explorer.
+Uninstall Bipane from Windows Settings → Apps → Installed apps.
+If "Open folders with Bipane" or "Open Bipane with Win+E" was on, File Explorer takes them back (Win+E once you sign in again). If "Start when I sign in" was on, the startup entry is removed. Folders pinned to Quick access stay pinned in File Explorer.
 
 ## License
 
@@ -204,7 +206,7 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 
 - Of the formats other than zip, only 7z, tar and tar.gz can be created; rar, lzh and the like are extracted only. A zip with a password cannot be created (7z can). 7z is compressed on one thread, so it is slow for big folders (about 4 minutes per GB with Normal)
 - An archive opened as a folder is read-only, and its items cannot be dragged out (use Copy or Copy to other side). Archives of more than 200,000 items are not opened as folders
-- While pins are shared with Quick access, they cannot be reordered or renamed in Explore Me (do it in File Explorer). A pinned folder moved to another place is pinned again at the end of Quick access (a rename keeps its place). Pins of the Recycle Bin and libraries are not shown
+- While pins are shared with Quick access, they cannot be reordered or renamed in Bipane (do it in File Explorer). A pinned folder moved to another place is pinned again at the end of Quick access (a rename keeps its place). Pins of the Recycle Bin and libraries are not shown
 - Old Japanese archives (lzh, tar and others with Shift_JIS names) may not extract with the right file names
 - The preview of Office, OpenDocument and EPUB files shows their text and tables, not their layout. Pictures such as HEIC or RAW show only when Windows has the codec for them (Microsoft Store extensions); video and audio formats the app cannot play (avi, wmv, wma…) show Windows' thumbnail and details instead
 
@@ -212,9 +214,11 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 
 # 日本語
 
+> **Explore Me は Bipane に名前を変えました**（バージョン 0.11.0 から）。中身は同じです。インストール済みの Explore Me は自動で更新され、設定・タブ・ピン留めはそのまま引き継がれます。タスクバーにピン留めしていた場合は、ピン留めし直してください。利用規約は名称だけを変更し、2026 年 10 月 5 日から効力が生じます（[LICENSE](LICENSE)）。
+
 **いつものエクスプローラーのまま、2 画面に。** Windows 11 のエクスプローラーと同じ見た目・操作で使える、タブと 2 画面のファイラーです。覚え直すことはありません。そのうえで、エクスプローラーにないものを足しています。
 
-![2 画面の Explore Me。左に写真の縮小表示、右に Web サイトのプロジェクト、右端に選んだ写真のプレビュー](images/ja/hero-dark.png)
+![2 画面の Bipane。左に写真の縮小表示、右に Web サイトのプロジェクト、右端に選んだ写真のプレビュー](images/ja/hero-dark.png)
 
 **[最新版をダウンロード](../../releases/latest)**（無料・Windows 11 の 64 ビット版・日本語と英語）
 
@@ -227,7 +231,7 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 
 2026 年 9 月 26 日に、Windows 11 25H2（ビルド 26200）のエクスプローラー、[Files](https://files.community) 4.2.9 と比べました（最後の 2 行は 9 月 27 日。[PowerToys の Peek](https://learn.microsoft.com/ja-jp/windows/powertoys/peek) は 2026 年 8 月 25 日の説明書で確認）。
 
-| | エクスプローラー | Files | Explore Me |
+| | エクスプローラー | Files | Bipane |
 | --- | --- | --- | --- |
 | 2 画面 | — | ✓ | ✓ |
 | 選んだものを 1 キーで反対側へコピー・移動 | — | — | ✓ Shift+F5 / Shift+F6 |
@@ -249,13 +253,13 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 
 **速さ**: コマンドラインからフォルダーを開いて、項目の数が表示されるまでの時間（作者の PC、Windows 11 25H2 で 5 回の中央値、2026 年 9 月 26 日）。
 
-| | エクスプローラー | Files 4.2.9 | Explore Me 0.6.0 |
+| | エクスプローラー | Files 4.2.9 | Bipane 0.6.0 |
 | --- | --- | --- | --- |
 | C:\Windows\System32（4,819 項目）、アプリがまだ動いていないとき | —（常に動いている） | 2.9 秒 | 0.8 秒 |
 | 同じフォルダー、アプリがもう動いているとき | 1.0 秒（新しいウィンドウ） | 1.0 秒（新しいウィンドウ） | 0.2 秒（新しいタブ） |
 | 10,000 ファイルのフォルダー、アプリがもう動いているとき | 1.1 秒 | 1.1 秒 | 0.2 秒 |
 
-アプリの中では、100,000 ファイルのフォルダーが約 0.9 秒で開きます。System32 を開いた状態のメモリは、Files が 249 MB、Explore Me が 175 MB でした（プライベート ワーキング セット＝タスク マネージャーに出る値）。
+アプリの中では、100,000 ファイルのフォルダーが約 0.9 秒で開きます。System32 を開いた状態のメモリは、Files が 249 MB、Bipane が 175 MB でした（プライベート ワーキング セット＝タスク マネージャーに出る値）。
 
 ## 機能
 
@@ -274,15 +278,15 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 - コピーの前に行き先の空き容量を確認。FAT32 のドライブには 4 GB 以上のファイルを置けないので、最後に失敗する代わりに、その旨を添えて外します
 - コピーや移動の途中で失敗した項目があっても残りを続け、最後に失敗した項目と理由を示して、それだけを再試行できます。設定で、コピーしたファイルを読み直して元と比べることもできます（設定 → 操作）。別のドライブへの移動では、一致を確かめてから元を消します
 - 操作の履歴（Ctrl+Shift+H）: コピー・移動・削除・名前の変更を一覧から元に戻せます（アプリを閉じた後でも）。開いているフォルダーで削除した項目を一覧して、ごみ箱から戻すこともできます
-- ピン留めを Windows のクイック アクセスと共有（既定）: エクスプローラーやほかのアプリの「開く・保存」ダイアログと同じフォルダーが、同じ並び・同じ名前で出ます。エクスプローラーでピン留めしたものもすぐ出ます。ピン留めしたフォルダーの名前を Explore Me で変えても、同じ位置のまま付いていきます
+- ピン留めを Windows のクイック アクセスと共有（既定）: エクスプローラーやほかのアプリの「開く・保存」ダイアログと同じフォルダーが、同じ並び・同じ名前で出ます。エクスプローラーでピン留めしたものもすぐ出ます。ピン留めしたフォルダーの名前を Bipane で変えても、同じ位置のまま付いていきます
 - 閉じても通知領域に残す（設定で選べます）: 次にウィンドウを開くのがすぐになります。Windows の起動時にウィンドウを出さずに起動しておくこともできます
 - 日本語 / 英語、ライト / ダーク
 
 ## 安全ですか？
 
 - **あなたやファイルについての情報は送りません。** ネットにつなぐのは GitHub への更新確認だけで、オフにもできます（設定 → バージョン情報）
-- **Windows がフォルダーを開く方法は変えません。** 変わるのは、設定で「フォルダーを Explore Me で開く」「Win+E で Explore Me を開く」をオンにしたときだけです。オフにするかアンインストールすると元に戻ります
-- **Explore Me でピン留めすると、Windows のクイック アクセスにもピン留めされます。** 既定でピン留めを共有しているためです（エクスプローラーにも同じピン留めが出ます）。共有は 設定 → 全般 でオフにでき、そのときのピン留めはどちらにも残ります
+- **Windows がフォルダーを開く方法は変えません。** 変わるのは、設定で「フォルダーを Bipane で開く」「Win+E で Bipane を開く」をオンにしたときだけです。オフにするかアンインストールすると元に戻ります
+- **Bipane でピン留めすると、Windows のクイック アクセスにもピン留めされます。** 既定でピン留めを共有しているためです（エクスプローラーにも同じピン留めが出ます）。共有は 設定 → 全般 でオフにでき、そのときのピン留めはどちらにも残ります
 - **Windows と一緒に起動するのは「サインイン時に起動する」をオンにしたときだけです**（設定 → 起動とウィンドウ、「閉じても通知領域に残す」と一緒に）。オフにするかアンインストールすると、スタートアップの登録を消します
 - **削除したものはごみ箱に入ります**（ごみ箱のあるドライブ）。完全に削除するのは Shift+Delete のときだけで、必ず確認します
 - **インストーラーはコード署名をしていません。** 初めて実行するときに Windows の警告が出ることがあります。各リリースにインストーラーの SHA-256 を載せています（[ダウンロード](#ダウンロード)）
@@ -348,13 +352,13 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 - 書庫（zip・7z・rar・tar.gz など）はダブルクリックでフォルダーのように中を見られます。中の項目は Ctrl+C や Shift+F5 で取り出せます。右クリックの「ここに展開」で全部を展開できます
 - 絞り込み欄（Ctrl+E）では `*.jpg`・`拡張子:png`・`種類:画像`・`サイズ:>10MB`・`日付:今日` で絞れます。空白で区切って組み合わせられます
 - タブはドラッグで並べ替え・反対側のペインへ移動できます。入りきらないときは ◀ ▶ かすべてのタブの一覧（▾）から
-- 「フォルダーを Explore Me で開く」を設定でオンにすると、デスクトップやほかのアプリから開いたフォルダーも Explore Me で開きます。「Win+E で Explore Me を開く」をオンにすると Win+E でも（サインインし直すと反映されます）
-- フォルダーのピン留めは Ctrl+D か、ピン留めの欄へのドロップで。並べ替えや名前の変更はエクスプローラーのクイック アクセスで行うと、Explore Me も同じになります
-- 「閉じても通知領域に残す」をオンにすると、× で閉じても Explore Me は動いたままです。終了は通知領域のアイコンのメニューから
+- 「フォルダーを Bipane で開く」を設定でオンにすると、デスクトップやほかのアプリから開いたフォルダーも Bipane で開きます。「Win+E で Bipane を開く」をオンにすると Win+E でも（サインインし直すと反映されます）
+- フォルダーのピン留めは Ctrl+D か、ピン留めの欄へのドロップで。並べ替えや名前の変更はエクスプローラーのクイック アクセスで行うと、Bipane も同じになります
+- 「閉じても通知領域に残す」をオンにすると、× で閉じても Bipane は動いたままです。終了は通知領域のアイコンのメニューから
 
 ## ダウンロード
 
-[Releases](../../releases/latest) から `ExploreMe-Setup-<版>.exe` をダウンロードして実行します。
+[Releases](../../releases/latest) から `Bipane-Setup-<版>.exe` をダウンロードして実行します。
 
 ### 動作環境
 
@@ -374,10 +378,10 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 心配な場合は、ダウンロードしたファイルが本物か確かめられます。各リリースのページに SHA-256 の値を載せています。PowerShell で次を実行し、同じ値か比べてください。
 
 ```powershell
-Get-FileHash .\ExploreMe-Setup-0.10.2.exe -Algorithm SHA256
+Get-FileHash .\Bipane-Setup-0.11.0.exe -Algorithm SHA256
 ```
 
-VirusTotal での検査結果（v0.10.2 のインストーラー）: [検出 0 / 68](https://www.virustotal.com/gui/file/9ae46f2d1b866370ddcec703fb41159322e088883bb24268c63c6420f20138dc)（2026-09-29 に検査。Kaspersky も検出なし）。0.9.0 と 0.10.0 のインストーラーは、Kaspersky 1 社だけが推定で検出していました（`HEUR:Trojan-PSW.JS.Stealer.gen`、誤検出、0.10.1 で解消）。パスワード付きの書庫で、入力したパスワードをどのファイルで確かめるかを選ぶ処理の置き場所に反応していたため、0.10.1 からはアプリの別の部分でその処理をしています。動きは変わりません（[0.10.1 のリリースノート](https://github.com/ternando0831-lang/explore-me/releases/tag/v0.10.1)）。Explore Me は保存されたパスワードを読まず、どこにも何も送りません。
+VirusTotal での検査結果（v0.10.2 のインストーラー。改名前の Explore Me）: [検出 0 / 68](https://www.virustotal.com/gui/file/9ae46f2d1b866370ddcec703fb41159322e088883bb24268c63c6420f20138dc)（2026-09-29 に検査。Kaspersky も検出なし）。0.9.0 と 0.10.0 のインストーラーは、Kaspersky 1 社だけが推定で検出していました（`HEUR:Trojan-PSW.JS.Stealer.gen`、誤検出、0.10.1 で解消）。パスワード付きの書庫で、入力したパスワードをどのファイルで確かめるかを選ぶ処理の置き場所に反応していたため、0.10.1 からはアプリの別の部分でその処理をしています。動きは変わりません（[0.10.1 のリリースノート](https://github.com/ternando0831-lang/bipane/releases/tag/v0.10.1)）。Bipane は保存されたパスワードを読まず、どこにも何も送りません。
 
 ## 更新
 
@@ -392,8 +396,8 @@ VirusTotal での検査結果（v0.10.2 のインストーラー）: [検出 0 /
 
 ## アンインストール
 
-Windows の「設定 → アプリ → インストールされているアプリ」から Explore Me をアンインストールします。
-「フォルダーを Explore Me で開く」「Win+E で Explore Me を開く」をオンにしていた場合も、元のエクスプローラーに戻ります（Win+E はサインインし直すと反映されます）。「サインイン時に起動する」をオンにしていた場合は、スタートアップの登録を消します。クイック アクセスにピン留めしたフォルダーは、エクスプローラーにそのまま残ります。
+Windows の「設定 → アプリ → インストールされているアプリ」から Bipane をアンインストールします。
+「フォルダーを Bipane で開く」「Win+E で Bipane を開く」をオンにしていた場合も、元のエクスプローラーに戻ります（Win+E はサインインし直すと反映されます）。「サインイン時に起動する」をオンにしていた場合は、スタートアップの登録を消します。クイック アクセスにピン留めしたフォルダーは、エクスプローラーにそのまま残ります。
 
 ## ライセンス
 
@@ -415,5 +419,5 @@ Windows・PowerToys・Visual Studio Code は Microsoft グループの商標で�
 - zip 以外で作れるのは 7z・tar・tar.gz だけで、rar・lzh などは展開だけです。パスワード付きの zip は作れません（7z なら作れます）。7z は 1 スレッドで圧縮するため、大きなフォルダーでは時間がかかります（標準で 1 GB あたり約 4 分）
 - フォルダーのように開いた書庫の中は読み取り専用で、項目をドラッグして外へ出すことはできません（コピーか「反対側へコピー」で取り出します）。項目が 20 万を超える書庫はフォルダーとしては開きません
 - 古い日本語の書庫（Shift_JIS の名前の lzh・tar など）は、名前が正しく展開されないことがあります
-- クイック アクセスと共有している間は、ピン留めの並べ替えと名前の変更は Explore Me ではできません（エクスプローラーで行います）。ピン留めしたフォルダーを別の場所へ移動すると、クイック アクセスの末尾に付け直します（名前の変更なら位置は変わりません）。ごみ箱やライブラリのピン留めは表示しません
+- クイック アクセスと共有している間は、ピン留めの並べ替えと名前の変更は Bipane ではできません（エクスプローラーで行います）。ピン留めしたフォルダーを別の場所へ移動すると、クイック アクセスの末尾に付け直します（名前の変更なら位置は変わりません）。ごみ箱やライブラリのピン留めは表示しません
 - Office・OpenDocument・EPUB のプレビューは文字と表だけで、レイアウトは再現しません。HEIC や RAW などの写真は、Windows にそのコーデック（Microsoft Store の拡張機能）があるときだけ表示できます。アプリで再生できない動画・音声（avi・wmv・wma など）は、代わりに Windows のサムネイルと詳細を表示します
