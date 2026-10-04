@@ -37,7 +37,7 @@ Compared on September 26, 2026 with File Explorer on Windows 11 25H2 (build 2620
 | Compare the two panes' folders, then copy just the differences across | — | — | ✓ Shift+F2 |
 | Cull photos while viewing them: color labels with 1–7, a RAW file deleted and labelled with its JPEG, Ctrl+Z | — (PowerToys Peek can delete, nothing more) | — (the Peek it opens can delete, nothing more) | ✓ In Quick Look |
 
-Where the others are ahead: File Explorer is built into Windows, and the Open and Save dialogs of other apps are always File Explorer. Files has themes and background images, Git integration, tags and a column view, runs on Windows 10 and ARM64, and is open source.
+Where the others are ahead: File Explorer is built into Windows, and the Open and Save dialogs of other apps are always File Explorer. Files has themes, Git integration, tags and a column view, runs on Windows 10 and ARM64, and is open source.
 
 **Speed**: the time from opening a folder from the command line until its item count shows (median of 5 on the author's PC, Windows 11 25H2, September 26, 2026).
 
@@ -55,20 +55,21 @@ Inside the app, a folder of 100,000 files opens in about 0.9 s. With System32 op
 - A command palette (Ctrl+K) that finds commands and folders by name
 - A preview for many kinds of files: photos including HEIC and camera RAW (through the codecs in Windows), video and audio, PDF, Word / Excel / PowerPoint and OpenDocument files (without Office), EPUB, fonts, the contents of archives, who signed a program, and the details File Explorer shows (duration, camera, author…)
 - Workspaces (save and reopen a whole set of tabs), color labels, and the Shelf (collect items with Ctrl+S, then move or copy them together)
-- Disk usage, flat view, and search through subfolders (uses Everything or the Windows index when available)
+- Disk usage, flat view, and search through subfolders (uses Everything or the Windows index when available, and then finds things as you type)
+- Copy to… / Move to… (right-click): choose the other pane, an open tab, a pinned or recent folder or a drive, or type a path
 - Compare the two panes' folders (Shift+F2): what is only on one side, newer, older or another size is marked and counted; show only the differences, and copy the newer items or the missing ones across
-- Cull photos in Quick Look: Delete, color labels with 1–7, Ctrl+Z. A RAW file (and its .xmp or .aae, and a Live Photo's .mov) goes with its JPEG or HEIC. Rename by the date taken (`{date}` in Batch rename)
+- Cull photos in Quick Look: Delete, color labels with 1–7 (or the buttons in its bar), Ctrl+Z, and actual size with Z or a click. A RAW file (and its .xmp or .aae, and a Live Photo's .mov) goes with its JPEG or HEIC. Rename by the date taken (`{date}` in Batch rename)
 - Filter with wildcards and conditions (`*.jpg`, `size:>10MB`, `date:today`, `label:red`) and group by date or date taken; the sort order and grouping are remembered for each folder
 - Names are found however they are written: hiragana and katakana, and full-width and half-width characters, count as the same when you filter, jump to a name or use the command palette
 - A folder on a network computer that does not answer never holds up the rest of the app
-- Open zip, 7z, rar, tar.gz and other archives like folders (read-only) and copy items out of them. Password-protected ones open too — a zip made on Japanese Windows keeps its Japanese names, also when it is encrypted — and the files a Mac adds (`__MACOSX`, `.DS_Store`) are left out
+- Open zip, 7z, rar, tar.gz and other archives like folders (read-only) and copy items out of them. Password-protected ones open too — a zip made on Japanese Windows keeps its Japanese names, also when it is encrypted — and the files a Mac adds (`__MACOSX`, `.DS_Store`) are left out. An archive holding a single folder is extracted as that folder, not inside another of the same name
 - Create zip in one click, or 7z (with a password if you like: AES-256, the names encrypted too), tar and tar.gz
 - Free space is checked before copying, and on FAT32 drives files of 4 GB or more are left out with a note, instead of failing at the end
 - A copy or move that could not do everything goes on with the rest and lists what failed and why at the end, with a retry of just those items. Optionally, each copied file is read back and compared with its original (Settings → Behavior); a move to another drive removes the original only after that
 - Activity history (Ctrl+Shift+H): undo past copies, moves, deletes and renames from a list, also after the app was closed, and see what was deleted from the current folder and put it back
 - Pins shared with Windows' Quick access (on by default): File Explorer and the Open / Save dialogs of other apps show the same pinned folders, in the same order and under the same names, and a pin made in File Explorer shows up at once. A pinned folder renamed in Bipane keeps its pin, in its place
 - Stay in the notification area when closed (optional): the next window comes up at once, and Bipane can start with Windows without a window
-- English / Japanese, light / dark
+- English / Japanese, light / dark, and a background picture of your own behind the lists if you like
 
 ## Is it safe?
 
@@ -141,7 +142,7 @@ It works like File Explorer. Press **F1** in the app for every shortcut, and **C
 - In the filter box (Ctrl+E), `*.jpg`, `ext:png`, `kind:picture`, `size:>10MB` and `date:today` narrow the list; separate several with spaces
 - Drag a tab to reorder it or to move it to the other pane. When the tabs do not fit, use the ◀ ▶ buttons or the list of every tab (▾)
 - Turn on "Open folders with Bipane" in Settings to open folders from the desktop and other apps in Bipane as well, and "Open Bipane with Win+E" for Win+E (it takes effect once you sign in again)
-- Pin a folder with Ctrl+D, or drop it on the pinned folders. To reorder or rename pins, do it in File Explorer's Quick access: Bipane follows
+- Pin a folder from its right-click menu, or drop it on the pinned folders (Ctrl+D moves items to the Recycle Bin, as in File Explorer). To reorder or rename pins, do it in File Explorer's Quick access: Bipane follows
 - With "Stay in the notification area when closed" on, × leaves Bipane running; exit from its icon's menu in the notification area
 
 ## Download
@@ -249,7 +250,7 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 | 左右のフォルダーを比べて、違う項目だけを反対側へコピー | — | — | ✓ Shift+F2 |
 | 写真を見ながら選別（1〜7 でカラーラベル、RAW も JPEG と一緒に削除・ラベル、Ctrl+Z で戻す） | —（PowerToys の Peek は削除だけ） | —（呼び出す Peek は削除だけ） | ✓ クイックルックで |
 
-ほかが勝っているところ: エクスプローラーは Windows に最初から入っていて、ほかのアプリの「開く」「保存」の画面は常にエクスプローラーです。Files には着せ替え（テーマ・背景画像）、Git との連携、タグ、カラム表示があり、Windows 10 と ARM64 でも動き、オープンソースです。
+ほかが勝っているところ: エクスプローラーは Windows に最初から入っていて、ほかのアプリの「開く」「保存」の画面は常にエクスプローラーです。Files にはテーマ、Git との連携、タグ、カラム表示があり、Windows 10 と ARM64 でも動き、オープンソースです。
 
 **速さ**: コマンドラインからフォルダーを開いて、項目の数が表示されるまでの時間（作者の PC、Windows 11 25H2 で 5 回の中央値、2026 年 9 月 26 日）。
 
@@ -267,20 +268,21 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 - コマンドパレット（Ctrl+K）で、操作やフォルダーを名前で探せます
 - いろいろなファイルのプレビュー: HEIC やカメラの RAW を含む写真（Windows のコーデックを使用）、動画・音声、PDF、Word・Excel・PowerPoint と OpenDocument のファイル（Office が無くても）、EPUB、フォント、書庫の中身、プログラムの署名元、エクスプローラーの詳細と同じ情報（長さ・カメラ・作成者など）
 - ワークスペース（開いているタブ一式を保存して呼び出す）、カラーラベル、仮置き（Ctrl+S で集めてまとめて移動）
-- 容量の内訳、フラット表示、サブフォルダーの検索（Everything・Windows のインデックスがあれば使う）
+- 容量の内訳、フラット表示、サブフォルダーの検索（Everything・Windows のインデックスがあれば使い、そのときは入力しながら探します）
+- コピー先…／移動先…（右クリック）: 反対側・開いているタブ・ピン留めや最近のフォルダー・ドライブから選ぶか、パスを入力
 - 左右のフォルダーの比較（Shift+F2）: 片側だけ・新しい・古い・大きさ違いに印を付けて件数を示します。違いだけを表示したり、新しい方や反対側に無い項目だけを反対側へコピーしたりできます
-- クイックルックで写真の選別: Delete、1〜7 のカラーラベル、Ctrl+Z。RAW（と .xmp・.aae、Live Photo の .mov）は JPEG／HEIC と一緒に扱います。撮影日時で名前を変更（まとめて名前を変更の `{date}`）
+- クイックルックで写真の選別: Delete、1〜7 のカラーラベル（バーのボタンでも）、Ctrl+Z、Z かクリックで等倍表示。RAW（と .xmp・.aae、Live Photo の .mov）は JPEG／HEIC と一緒に扱います。撮影日時で名前を変更（まとめて名前を変更の `{date}`）
 - 絞り込みにワイルドカードと条件（`*.jpg`・`サイズ:>10MB`・`日付:今日`・`ラベル:赤`）、日付や撮影日時でのグループ表示。並べ替えとグループはフォルダーごとに覚えます
 - 名前は書き方が違っても見つかります。絞り込み・名前への移動・コマンドパレットで、ひらがなとカタカナ、全角と半角を同じものとして探します
 - 応答しないネットワーク上のフォルダーがあっても、ほかの操作は待たされません
-- zip・7z・rar・tar.gz などの書庫をフォルダーのように開いて（読み取り専用）中の項目を取り出せます。パスワード付きの書庫も開けます（日本語の Windows で作った zip は、パスワード付きでも日本語の名前が化けません）。Mac の付属ファイル（`__MACOSX`・`.DS_Store`）は除きます
+- zip・7z・rar・tar.gz などの書庫をフォルダーのように開いて（読み取り専用）中の項目を取り出せます。パスワード付きの書庫も開けます（日本語の Windows で作った zip は、パスワード付きでも日本語の名前が化けません）。Mac の付属ファイル（`__MACOSX`・`.DS_Store`）は除きます。中身が 1 つのフォルダーだけの書庫は、同じ名前のフォルダーを二重に作らずに展開します
 - zip は 1 クリックで、7z（パスワードも付けられます: AES-256、名前も暗号化）・tar・tar.gz も作れます
 - コピーの前に行き先の空き容量を確認。FAT32 のドライブには 4 GB 以上のファイルを置けないので、最後に失敗する代わりに、その旨を添えて外します
 - コピーや移動の途中で失敗した項目があっても残りを続け、最後に失敗した項目と理由を示して、それだけを再試行できます。設定で、コピーしたファイルを読み直して元と比べることもできます（設定 → 操作）。別のドライブへの移動では、一致を確かめてから元を消します
 - 操作の履歴（Ctrl+Shift+H）: コピー・移動・削除・名前の変更を一覧から元に戻せます（アプリを閉じた後でも）。開いているフォルダーで削除した項目を一覧して、ごみ箱から戻すこともできます
 - ピン留めを Windows のクイック アクセスと共有（既定）: エクスプローラーやほかのアプリの「開く・保存」ダイアログと同じフォルダーが、同じ並び・同じ名前で出ます。エクスプローラーでピン留めしたものもすぐ出ます。ピン留めしたフォルダーの名前を Bipane で変えても、同じ位置のまま付いていきます
 - 閉じても通知領域に残す（設定で選べます）: 次にウィンドウを開くのがすぐになります。Windows の起動時にウィンドウを出さずに起動しておくこともできます
-- 日本語 / 英語、ライト / ダーク
+- 日本語 / 英語、ライト / ダーク。お好みで一覧の後ろに好きな画像も敷けます
 
 ## 安全ですか？
 
@@ -353,7 +355,7 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 - 絞り込み欄（Ctrl+E）では `*.jpg`・`拡張子:png`・`種類:画像`・`サイズ:>10MB`・`日付:今日` で絞れます。空白で区切って組み合わせられます
 - タブはドラッグで並べ替え・反対側のペインへ移動できます。入りきらないときは ◀ ▶ かすべてのタブの一覧（▾）から
 - 「フォルダーを Bipane で開く」を設定でオンにすると、デスクトップやほかのアプリから開いたフォルダーも Bipane で開きます。「Win+E で Bipane を開く」をオンにすると Win+E でも（サインインし直すと反映されます）
-- フォルダーのピン留めは Ctrl+D か、ピン留めの欄へのドロップで。並べ替えや名前の変更はエクスプローラーのクイック アクセスで行うと、Bipane も同じになります
+- フォルダーのピン留めは右クリックメニューか、ピン留めの欄へのドロップで（Ctrl+D はエクスプローラーと同じく「ごみ箱へ」）。並べ替えや名前の変更はエクスプローラーのクイック アクセスで行うと、Bipane も同じになります
 - 「閉じても通知領域に残す」をオンにすると、× で閉じても Bipane は動いたままです。終了は通知領域のアイコンのメニューから
 
 ## ダウンロード
