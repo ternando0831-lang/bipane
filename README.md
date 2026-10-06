@@ -47,7 +47,7 @@ Where the others are ahead: File Explorer is built into Windows, and the Open an
 | The same, the app already running | 1.0 s (a new window) | 1.0 s (a new window) | 0.2 s (a new tab) |
 | A folder of 10,000 files, the app already running | 1.1 s | 1.1 s | 0.2 s |
 
-Inside the app, a folder of 100,000 files opens in about 0.9 s. With System32 open, Files used 249 MB of memory and Bipane 175 MB (private working set, what Task Manager shows).
+Inside the app, a folder of 100,000 files opens in about 0.3 s (0.13.0, October 7, 2026; 0.9 s in 0.6.0). Photos that Windows has no thumbnail for yet are made side by side, from the top of the screen down: a screen of 16 phone RAW (DNG) photos fills in about 2 s, where Windows alone makes them one at a time (about 13 s). With System32 open, Files used 249 MB of memory and Bipane 175 MB (private working set, what Task Manager shows).
 
 ## Features
 
@@ -260,7 +260,7 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 | 同じフォルダー、アプリがもう動いているとき | 1.0 秒（新しいウィンドウ） | 1.0 秒（新しいウィンドウ） | 0.2 秒（新しいタブ） |
 | 10,000 ファイルのフォルダー、アプリがもう動いているとき | 1.1 秒 | 1.1 秒 | 0.2 秒 |
 
-アプリの中では、100,000 ファイルのフォルダーが約 0.9 秒で開きます。System32 を開いた状態のメモリは、Files が 249 MB、Bipane が 175 MB でした（プライベート ワーキング セット＝タスク マネージャーに出る値）。
+アプリの中では、100,000 ファイルのフォルダーが約 0.3 秒で開きます（0.13.0、2026 年 10 月 7 日。0.6.0 では 0.9 秒）。Windows がまだサムネイルを作っていない写真は並べて作り、画面の上から順に出します: スマホの RAW（DNG）の写真 16 枚の画面が約 2 秒でそろいます（Windows だけでは 1 枚ずつで約 13 秒）。System32 を開いた状態のメモリは、Files が 249 MB、Bipane が 175 MB でした（プライベート ワーキング セット＝タスク マネージャーに出る値）。
 
 ## 機能
 
