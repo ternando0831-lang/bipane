@@ -170,7 +170,7 @@ To make sure the file is the genuine one, compare its SHA-256 with the value on 
 Get-FileHash .\Bipane-Setup-0.11.0.exe -Algorithm SHA256
 ```
 
-VirusTotal: the v0.13.0 installer, [0 / 66 detections](https://www.virustotal.com/gui/file/3e31ddab629c1c5e2eca95fa2fd666cafadeeb00005c11f316df4c4132d772fc) (scanned on 2026-10-08; Kaspersky included). The 0.9.0 and 0.10.0 installers were flagged by one engine, Kaspersky (`HEUR:Trojan-PSW.JS.Stealer.gen`): a false positive, fixed in 0.10.1. Its heuristic reacted to where the app chose which file of a password-protected archive to try your password on; since 0.10.1 the app makes that choice in another part of the app and behaves the same (see the [0.10.1 release notes](https://github.com/ternando0831-lang/bipane/releases/tag/v0.10.1)). Bipane reads no saved passwords and sends nothing anywhere.
+VirusTotal: the v0.13.1 installer, [0 / 67 detections](https://www.virustotal.com/gui/file/364b5d8b1e34b8b3759e901d6d6169badd47b8984dd618a305f6c9a3cdf98e7c) (scanned on 2026-10-09; Kaspersky included). The 0.9.0 and 0.10.0 installers were flagged by one engine, Kaspersky (`HEUR:Trojan-PSW.JS.Stealer.gen`): a false positive, fixed in 0.10.1. Its heuristic reacted to where the app chose which file of a password-protected archive to try your password on; since 0.10.1 the app makes that choice in another part of the app and behaves the same (see the [0.10.1 release notes](https://github.com/ternando0831-lang/bipane/releases/tag/v0.10.1)). Bipane reads no saved passwords and sends nothing anywhere.
 
 ## Updates
 
@@ -383,7 +383,7 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 Get-FileHash .\Bipane-Setup-0.11.0.exe -Algorithm SHA256
 ```
 
-VirusTotal での検査結果（v0.13.0 のインストーラー）: [検出 0 / 66](https://www.virustotal.com/gui/file/3e31ddab629c1c5e2eca95fa2fd666cafadeeb00005c11f316df4c4132d772fc)（2026-10-08 に検査。Kaspersky も検出なし）。0.9.0 と 0.10.0 のインストーラーは、Kaspersky 1 社だけが推定で検出していました（`HEUR:Trojan-PSW.JS.Stealer.gen`、誤検出、0.10.1 で解消）。パスワード付きの書庫で、入力したパスワードをどのファイルで確かめるかを選ぶ処理の置き場所に反応していたため、0.10.1 からはアプリの別の部分でその処理をしています。動きは変わりません（[0.10.1 のリリースノート](https://github.com/ternando0831-lang/bipane/releases/tag/v0.10.1)）。Bipane は保存されたパスワードを読まず、どこにも何も送りません。
+VirusTotal での検査結果（v0.13.1 のインストーラー）: [検出 0 / 67](https://www.virustotal.com/gui/file/364b5d8b1e34b8b3759e901d6d6169badd47b8984dd618a305f6c9a3cdf98e7c)（2026-10-09 に検査。Kaspersky も検出なし）。0.9.0 と 0.10.0 のインストーラーは、Kaspersky 1 社だけが推定で検出していました（`HEUR:Trojan-PSW.JS.Stealer.gen`、誤検出、0.10.1 で解消）。パスワード付きの書庫で、入力したパスワードをどのファイルで確かめるかを選ぶ処理の置き場所に反応していたため、0.10.1 からはアプリの別の部分でその処理をしています。動きは変わりません（[0.10.1 のリリースノート](https://github.com/ternando0831-lang/bipane/releases/tag/v0.10.1)）。Bipane は保存されたパスワードを読まず、どこにも何も送りません。
 
 ## 更新
 
