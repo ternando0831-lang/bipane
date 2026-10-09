@@ -69,7 +69,10 @@ Inside the app, a folder of 100,000 files opens in about 0.3 s (0.13.0, October 
 - Activity history (Ctrl+Shift+H): undo past copies, moves, deletes and renames from a list, also after the app was closed, and see what was deleted from the current folder and put it back
 - Pins shared with Windows' Quick access (on by default): File Explorer and the Open / Save dialogs of other apps show the same pinned folders, in the same order and under the same names, and a pin made in File Explorer shows up at once. A pinned folder renamed in Bipane keeps its pin, in its place
 - Stay in the notification area when closed (optional): the next window comes up at once, and Bipane can start with Windows without a window
-- English / Japanese, light / dark, and a background picture of your own behind the lists if you like
+- Extra large icons and tiles; dimensions and length columns; pinned tabs; the folders you use most at Ctrl+G and in the taskbar's jump list
+- Paste a screenshot or copied text as a file (Ctrl+V), move the selection into a new folder, select by pattern, rotate and convert pictures (a JPEG losslessly), unblock downloaded files, and find duplicate files
+- Advanced settings: about 25 numbers to tune (tab width, timeouts, history and undo depth, search limits…), and export / import of all settings
+- English / Japanese, light / dark, and a background picture of your own behind the whole window (or the lists only) if you like
 
 ## Is it safe?
 
@@ -134,7 +137,8 @@ It works like File Explorer. Press **F1** in the app for every shortcut, and **C
 | Put on the Shelf (move or copy them together later) | Ctrl+S |
 | Undo / redo (also a delete to the Recycle Bin) | Ctrl+Z / Ctrl+Y |
 | Activity history (undo earlier steps, also from before a restart) | Ctrl+Shift+H |
-| Large icons / medium icons / list / details | Ctrl+Shift+2 / 3 / 5 / 6 |
+| Extra large / large / medium icons / list / details / tiles | Ctrl+Shift+1 / 2 / 3 / 5 / 6 / 7 |
+| Go to a folder you use often | Ctrl+G |
 | Show hidden files | Ctrl+H |
 
 - Right-click opens a Windows 11 style menu. For the full Windows menu (including items added by 7-Zip and other apps), Shift+right-click or choose "Show more options"
@@ -170,7 +174,7 @@ To make sure the file is the genuine one, compare its SHA-256 with the value on 
 Get-FileHash .\Bipane-Setup-0.11.0.exe -Algorithm SHA256
 ```
 
-VirusTotal: the v0.13.1 installer, [0 / 67 detections](https://www.virustotal.com/gui/file/364b5d8b1e34b8b3759e901d6d6169badd47b8984dd618a305f6c9a3cdf98e7c) (scanned on 2026-10-09; Kaspersky included). The 0.9.0 and 0.10.0 installers were flagged by one engine, Kaspersky (`HEUR:Trojan-PSW.JS.Stealer.gen`): a false positive, fixed in 0.10.1. Its heuristic reacted to where the app chose which file of a password-protected archive to try your password on; since 0.10.1 the app makes that choice in another part of the app and behaves the same (see the [0.10.1 release notes](https://github.com/ternando0831-lang/bipane/releases/tag/v0.10.1)). Bipane reads no saved passwords and sends nothing anywhere.
+VirusTotal: the v0.14.0 installer, [0 / 68 detections](https://www.virustotal.com/gui/file/6379ac0aae3412dda115defc74740e0dbda8f1663fd2e5801c0b39959f399f30) (scanned on 2026-10-09; Kaspersky included). The 0.9.0 and 0.10.0 installers were flagged by one engine, Kaspersky (`HEUR:Trojan-PSW.JS.Stealer.gen`): a false positive, fixed in 0.10.1. Its heuristic reacted to where the app chose which file of a password-protected archive to try your password on; since 0.10.1 the app makes that choice in another part of the app and behaves the same (see the [0.10.1 release notes](https://github.com/ternando0831-lang/bipane/releases/tag/v0.10.1)). Bipane reads no saved passwords and sends nothing anywhere.
 
 ## Updates
 
@@ -282,7 +286,10 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 - 操作の履歴（Ctrl+Shift+H）: コピー・移動・削除・名前の変更を一覧から元に戻せます（アプリを閉じた後でも）。開いているフォルダーで削除した項目を一覧して、ごみ箱から戻すこともできます
 - ピン留めを Windows のクイック アクセスと共有（既定）: エクスプローラーやほかのアプリの「開く・保存」ダイアログと同じフォルダーが、同じ並び・同じ名前で出ます。エクスプローラーでピン留めしたものもすぐ出ます。ピン留めしたフォルダーの名前を Bipane で変えても、同じ位置のまま付いていきます
 - 閉じても通知領域に残す（設定で選べます）: 次にウィンドウを開くのがすぐになります。Windows の起動時にウィンドウを出さずに起動しておくこともできます
-- 日本語 / 英語、ライト / ダーク。お好みで一覧の後ろに好きな画像も敷けます
+- 特大アイコンと並べて表示、寸法・長さの列、タブの固定、よく使うフォルダー（Ctrl+G とタスクバーのジャンプリスト）
+- スクリーンショットやコピーした文章をファイルとして貼り付け（Ctrl+V）、選んだ項目を新しいフォルダーにまとめる、パターンで選択、画像の回転と変換（JPEG は画質を落とさずに回します）、ダウンロードしたファイルのブロックの解除、中身が同じファイルを探す
+- 高度な設定: 約 25 個の値（タブの幅・待ち時間・履歴と元に戻せる回数・検索の上限など）を変えられ、設定全体の書き出し・読み込みもできます
+- 日本語 / 英語、ライト / ダーク。お好みでウィンドウ全体（または一覧だけ）の後ろに好きな画像も敷けます
 
 ## 安全ですか？
 
@@ -347,7 +354,8 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 | 仮置きに入れる（あとでまとめて移動・コピー） | Ctrl+S |
 | 元に戻す / やり直す（ごみ箱への削除も戻せます） | Ctrl+Z / Ctrl+Y |
 | 操作の履歴（前の操作を戻す。再起動の前の分も） | Ctrl+Shift+H |
-| 表示の切り替え（大アイコン / 中アイコン / 一覧 / 詳細） | Ctrl+Shift+2 / 3 / 5 / 6 |
+| 表示の切り替え（特大アイコン / 大アイコン / 中アイコン / 一覧 / 詳細 / 並べて表示） | Ctrl+Shift+1 / 2 / 3 / 5 / 6 / 7 |
+| よく使うフォルダーへ移動 | Ctrl+G |
 | 隠しファイルの表示 | Ctrl+H |
 
 - 右クリックは Windows 11 風のメニューです。7-Zip などが加えた項目も含む Windows 本来のメニューは、Shift+右クリックか「その他のオプションを確認」から
@@ -383,7 +391,7 @@ Ask questions, share ideas or report bugs in [Discussions](../../discussions). Y
 Get-FileHash .\Bipane-Setup-0.11.0.exe -Algorithm SHA256
 ```
 
-VirusTotal での検査結果（v0.13.1 のインストーラー）: [検出 0 / 67](https://www.virustotal.com/gui/file/364b5d8b1e34b8b3759e901d6d6169badd47b8984dd618a305f6c9a3cdf98e7c)（2026-10-09 に検査。Kaspersky も検出なし）。0.9.0 と 0.10.0 のインストーラーは、Kaspersky 1 社だけが推定で検出していました（`HEUR:Trojan-PSW.JS.Stealer.gen`、誤検出、0.10.1 で解消）。パスワード付きの書庫で、入力したパスワードをどのファイルで確かめるかを選ぶ処理の置き場所に反応していたため、0.10.1 からはアプリの別の部分でその処理をしています。動きは変わりません（[0.10.1 のリリースノート](https://github.com/ternando0831-lang/bipane/releases/tag/v0.10.1)）。Bipane は保存されたパスワードを読まず、どこにも何も送りません。
+VirusTotal での検査結果（v0.14.0 のインストーラー）: [検出 0 / 68](https://www.virustotal.com/gui/file/6379ac0aae3412dda115defc74740e0dbda8f1663fd2e5801c0b39959f399f30)（2026-10-09 に検査。Kaspersky も検出なし）。0.9.0 と 0.10.0 のインストーラーは、Kaspersky 1 社だけが推定で検出していました（`HEUR:Trojan-PSW.JS.Stealer.gen`、誤検出、0.10.1 で解消）。パスワード付きの書庫で、入力したパスワードをどのファイルで確かめるかを選ぶ処理の置き場所に反応していたため、0.10.1 からはアプリの別の部分でその処理をしています。動きは変わりません（[0.10.1 のリリースノート](https://github.com/ternando0831-lang/bipane/releases/tag/v0.10.1)）。Bipane は保存されたパスワードを読まず、どこにも何も送りません。
 
 ## 更新
 
